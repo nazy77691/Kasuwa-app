@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ha">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kasuwa Zaki - Cart</title>
+</head>
+<body>
+  <h1>Kayan da Ka Zaba</h1>
+  <ul id="cart-list"></ul>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartList = document.getElementById('cart-list');
+
+    if (cart.length === 0) {
+      cartList.innerHTML = "<p>Babu kaya a cikin cart.</p>";
+    } else {
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.product} - ₦${item.price}`;
+        cartList.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>

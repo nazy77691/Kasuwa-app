@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ha">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kasuwa Zaki - Shop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Kayan Kasuwa 🛒</h1>
+
+  <div class="products">
+    <div class="product">
+      <h2>Shinkafa 50kg</h2>
+      <p>₦35,000</p>
+      <button onclick="addToCart('Shinkafa 50kg', 35000)">Add to Cart</button>
+    </div>
+    <div class="product">
+      <h2>Man gyada 5L</h2>
+      <p>₦6,000</p>
+      <button onclick="addToCart('Man gyada 5L', 6000)">Add to Cart</button>
+    </div>
+  </div>
+
+  <a href="cart.html">View Cart</a>
+
+  <script>
+    function addToCart(product, price) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ product, price });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${product} an saka a cikin cart.`);
+    }
+  </script>
+</body>
+</html>
